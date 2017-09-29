@@ -1,0 +1,9 @@
+{
+    "name": "anomaly/throttle-extension",
+    "type": "streams-addon",
+    "autoload": {
+        "psr-4": {
+            "Anomaly\\ThrottleExtension\\": "src/"
+        }
+    }
+}
