@@ -87,9 +87,9 @@ class ThrottleRequest
      */
     public function handle(Request $request, \Closure $next)
     {
-        $lockoutInterval  = $this->config->get($this->extension->getNamespace('throttle.lockout_interval'), 1);
-        $maxAttempts      = $this->config->get($this->extension->getNamespace('throttle.max_attempts'), 5);
-        $throttleInterval = $this->config->get($this->extension->getNamespace('throttle.interval'), 1);
+        $lockoutInterval  = $this->config->get($this->extension->getNamespace('throttle.lockout_interval'), 5);
+        $maxAttempts      = $this->config->get($this->extension->getNamespace('throttle.max_attempts'), 50);
+        $throttleInterval = $this->config->get($this->extension->getNamespace('throttle.interval'), 30);
 
         $attempts   = $this->cache->get($this->extension->getNamespace('attempts:' . $request->ip()), 1);
         $expiration = $this->cache->get($this->extension->getNamespace('expiration:' . $request->ip()));
